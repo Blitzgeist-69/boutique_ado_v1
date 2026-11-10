@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include  # to include the allauth urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # to include the allauth urls
     path('', include('home.urls')),  # to include the home app urls
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
