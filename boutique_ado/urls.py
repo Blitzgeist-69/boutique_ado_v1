@@ -23,4 +23,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # to include the allauth urls
     path('', include('home.urls')),  # to include the home app urls
     path('products/', include('products.urls')),  # to include the products app urls
+    path('bag/', include('bag.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
