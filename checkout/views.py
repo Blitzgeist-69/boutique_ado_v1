@@ -8,11 +8,13 @@ def checkout(request):
     if not bag:
         messages.error(request, "There's nothing in your bag at the moment")
         return redirect(reverse('products'))
-    
+  
     order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
+        'stripe_public_key': 'pk_test_51UdCzdANyEDR8rhYHFAByOOj53Cq7qpFGjbw8nDB0vRdoB1QjPSHwKibM1rMapcMMTJvdt7wXNbr7E9tkTctAdKi00INFnb60m',
+        'client__secret': 'test client secret',
     }
 
     return render(request, template, context)
